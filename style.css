@@ -1,0 +1,39 @@
+.banner {
+    background-image: url(images/header.jpg);
+    background-size: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 700px;
+    width: 100%;
+
+}
+
+.text1 {
+    font-size: 5px;
+    padding-top: 15px;
+}
+
+.text2 {
+    font-size: 24px;
+    padding-top: 0;
+    padding-bottom: 50px;
+
+}
+
+#title1 {
+    font-size: 70px;
+    padding-top: 220px;
+
+
+
+}
+
+#title2 {
+    font-size: 70px;
+    padding-top: 0;
+    margin-top: 0;
+
+
+}
