@@ -68,10 +68,11 @@ function setValueInTextField(inputId, newText) {
     let getField = document.getElementById(inputId);
     if (isNaN(newText)) {
         getField.innerText = '0';
-        //worngInputMsgShow();
+        worngInputMsgShow();
     }
-    else if (newText == 0) {
+    else if (newText <= 0) {
         getField.innerText = '0';
+        console.log('po')
     }
     else {
         getField.innerText = newText;
