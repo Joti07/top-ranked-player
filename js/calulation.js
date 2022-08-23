@@ -41,26 +41,17 @@ document.getElementById('alretClose').addEventListener('click', function () {
 
 //////budget
 document.getElementById('calculateBtn').addEventListener('click', function () {
+
+    const perPlayerCost = getValueFromInputField('perPlayer');
+
     const playerNumber = document.querySelectorAll('#playerList li');
-    if (playerNumber.length == 0) {
-        alert("please select any player")
 
 
-    }
-    else {
-        const perPlayerCost = getValueFromInputField('perPlayer');
-
-
-
-        const totalPlayerCost = playerNumber.length * perPlayerCost;
-        setValueInTextField('totalPlayerCost', totalPlayerCost);
-
-    }
-
+    const totalPlayerCost = playerNumber.length * perPlayerCost;
+    setValueInTextField('totalPlayerCost', totalPlayerCost);
 })
 
 document.getElementById('totalCostBtn').addEventListener('click', function () {
-
     const totalPlayerCost = getValueFromTextField('totalPlayerCost');
     const managerCost = getValueFromInputField('managerCost');
     const coachCost = getValueFromInputField('coachCost');

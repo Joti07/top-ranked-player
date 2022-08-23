@@ -68,12 +68,12 @@ function setValueInTextField(inputId, newText) {
     let getField = document.getElementById(inputId);
     if (isNaN(newText)) {
         getField.innerText = '0';
-        alert("please select any player")
-        //  worngInputMsgShow();
+
+        worngInputMsgShow();
     }
     else if (newText <= 0) {
         getField.innerText = '0';
-        console.log('po')
+
     }
     else {
         getField.innerText = newText;
