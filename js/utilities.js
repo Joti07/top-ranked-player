@@ -28,7 +28,8 @@ function setPlayerName(playerName, btnId) {
         btnDisable.disabled = 'true';
     }
     else {
-        alertMsgShow();
+        // alertMsgShow();
+        alert("You have already select five players")
     }
 }
 
@@ -45,6 +46,15 @@ function worngInputMsgClose() {
 function getValueFromInputField(inputId) {
     const valueString = document.getElementById(inputId).value;
     const inputValue = parseFloat(valueString);
+    if (inputValue < 0 || isNaN(inputValue)) {
+        //getField.innerText = '0';
+        document.getElementById('perPlayer').value = '';
+        document.getElementById('managerCost').value = '';
+        document.getElementById('coachCost').value = '';
+        document.getElementById('totalPlayerCost').innerText = '0000';
+        document.getElementById('totalCost').innerText = '0000';
+        worngInputMsgShow();
+    }
     return inputValue;
 }
 
@@ -57,11 +67,11 @@ function getValueFromTextField(inputId) {
 function setValueInTextField(inputId, newText) {
     let getField = document.getElementById(inputId);
     if (isNaN(newText)) {
-        getField.innerText = '0000';
-        worngInputMsgShow();
+        getField.innerText = '0';
+        //worngInputMsgShow();
     }
-    else if (newText === 0) {
-        getField.innerText = '0000';
+    else if (newText == 0) {
+        getField.innerText = '0';
     }
     else {
         getField.innerText = newText;

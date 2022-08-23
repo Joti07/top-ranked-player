@@ -46,7 +46,6 @@ document.getElementById('calculateBtn').addEventListener('click', function () {
     const playerNumber = document.querySelectorAll('#playerList li');
 
     const totalPlayerCost = playerNumber.length * perPlayerCost;
-    console.log(totalPlayerCost)
     setValueInTextField('totalPlayerCost', totalPlayerCost);
 })
 
