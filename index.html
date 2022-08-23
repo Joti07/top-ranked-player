@@ -21,7 +21,7 @@
             <div class="banner-text align-items-center" style="padding-top: 10%;">
 
 
-                <h1 class="text-white text-center pt-5">Top Ranked Players </h1>
+                <h1 class="font-semibold text-3xl text-white text-center pt-5">Top Ranked Players </h1>
                 <p class="text-white text-center"> We've tried to balance current form
                     with overall talent
                     as best we
@@ -143,32 +143,144 @@
             <!---------------------------------- end of player selection ------------------------------------------------------->
 
 
+            <div class="flex flex-col place-items-center">
+                <!-----------------------   selected players start ----------------------------- -->
+                <div class="bg-black md:px-20 xl:px-8 h-min p-6 mb-4 w-10/12">
+
+                    <h4 class="text-2xl font-bold text-center text-white">Selected - V</h4>
+
+
+                    <div class="text-white text-center text-xl px-6 pt-5 pb-4 ml-4">
+                        <ul id="playerList" class="list-decimal"></ul>
+                        <p id="noPlayerMsg">No Player Selected</p>
+                    </div>
+
+                    <div id="alertMsg" tabindex="-1"
+                        class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 md:inset-0 h-modal md:h-full justify-center items-center flex hidden"
+                        aria-modal="true" role="dialog">
+                        <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+                            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                <button type="button"
+                                    class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                                    data-modal-toggle="popup-modal">
+                                    <svg id="alretClose" aria-hidden="true" class="w-5 h-5" fill="currentColor"
+                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                                <div class="p-6 text-center">
+                                    <svg aria-hidden="true"
+                                        class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Already 5
+                                        Player Added! You Are Not Allow To Add More Player.</h3>
+                                    <button data-modal-toggle="popup-modal" type="button"
+                                        class="alretClose  text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                                        Ok, I'm Understand
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-------------------------- selected players end ------------------------------>
+
+                <div class="bg-black md:px-20 xl:px-10 p-6 mb-4 w-10/12">
+
+                    <h4 class="text-2xl font-bold text-center text-white">Budget</h4>
+
+                    <div id="worngInputMsg"
+                        class="bg-red-100 mt-4 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-6 hidden"
+                        role="alert">
+                        <strong id="msg1" class="font-bold">Wrong Input!</strong><br>
+                        <span id="msg2" class="block sm:inline">Please Check Your Input.</span>
+                        <span id="worrningClose" class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                            <svg class="fill-current h-6 w-6 text-red-500" role="button"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <title>Close</title>
+                                <path
+                                    d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z">
+                                </path>
+                            </svg>
+                        </span>
+                    </div>
+
+
+                    <!-- -------------------------------budget start ----------------------------------->
+                    <div class="my-4">
+                        <div class="flex">
+                            <label class="text-gray-400 text-lg flex items-center mr-auto" for="perPlayer">Per
+                                Player</label>
+                            <input id="perPlayer" class="border text-white border-white bg-black w-7/12 p-2"
+                                type="text">
+                        </div>
+                    </div>
+
+                    <div>
+                        <button id="calculateBtn"
+                            class="bg-cyan-500 items-center w-full py-2 px-16 text-1xl font-medium text-center text-white buton-color hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mb-4">
+                            <span class="px-2.5">Calculate</span>
+                        </button>
+                    </div>
+                    <div>
+                        <div class="flex">
+                            <p class="text-gray-400 text-lg mr-auto">Player Expenses</p>
+                            <p class="text-white text-lg text-left">$<span id="totalPlayerCost">0000</span></p>
+                        </div>
+                        <div class="my-4">
+                            <div class="flex">
+                                <label class="text-gray-400 text-lg flex items-center mr-auto"
+                                    for="managerCost">Manager</label>
+                                <input id="managerCost" class="border text-white border-white bg-black w-7/12 p-2"
+                                    type="text">
+                            </div>
+                        </div>
+                        <div class="my-4">
+                            <div class="flex">
+                                <label class="text-gray-400 text-lg flex items-center mr-auto"
+                                    for="coachCost">Coach</label>
+                                <input id="coachCost" class="border text-white border-white bg-black w-7/12 p-2"
+                                    type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button id="totalCostBtn"
+                            class="bg-cyan-500 items-center w-full py-2 px-12 text-1xl font-medium text-center text-white buton-color hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mb-4">
+                            Calculate Total
+                        </button>
+                        <div class="flex">
+                            <p class="text-amber-600 text-lg mr-auto font-bold">Player Expenses</p>
+                            <p class="text-white text-lg text-left">$<span id="totalCost">0000</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
 
     </main>
     <!-------------------------------------- footer start ------------------------------------------------------->
-    <footer class="footer">
-        <h1>Goal</h1>
-        <hr>
-        <!-- <div class="footer-text">
-           <p>Contact Us </p>
-            <p>Terms of Service </p>
-            <p>Privacy Policy</p>
-            <p>Privacy Settings</p>
+    <footer>
+        <section class="bg-black">
+            <hr>
+            <h2 class="text-white text-center pt-8 pb-8">Copyright @ 2022 All Rights Reserved.</h2>
 
-        </div> -->
-        <div class="socials ">
-            <a href="https://www.facebook.com">Contact Us<i class="fa-brands fa-facebook"></i></a>
-            <a href="https://www.youtube.com/">Terms of Service<i class="fa-brands fa-youtube"></i></a>
-            <a href="https://www.linkedin.com/">Privacy Policy<i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://twitter.com/">Privacy Settings<i class="fa-brands fa-twitter-square"></i></a>
-        </div>
+        </section>
     </footer>
     <!-------------------------------------- footer end ------------------------------------------------------->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src=""></script>
+
+    <script src="js/utilities.js"></script>
 
 </body>
 
