@@ -60,21 +60,12 @@ document.getElementById('calculateBtn').addEventListener('click', function () {
 })
 
 document.getElementById('totalCostBtn').addEventListener('click', function () {
-    const playerNumber = document.querySelectorAll('#playerList li');
-    if (playerNumber.length == 0) {
-        alert("please select any player")
 
-
-    }
-    else {
-        const totalPlayerCost = getValueFromTextField('totalPlayerCost');
-        const managerCost = getValueFromInputField('managerCost');
-        const coachCost = getValueFromInputField('coachCost');
-        const totalCost = totalPlayerCost + managerCost + coachCost;
-        setValueInTextField('totalCost', totalCost);
-
-    }
-
+    const totalPlayerCost = getValueFromTextField('totalPlayerCost');
+    const managerCost = getValueFromInputField('managerCost');
+    const coachCost = getValueFromInputField('coachCost');
+    const totalCost = totalPlayerCost + managerCost + coachCost;
+    setValueInTextField('totalCost', totalCost);
 })
 
 document.getElementById('worrningClose').addEventListener('click', function () {
