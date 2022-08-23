@@ -41,20 +41,40 @@ document.getElementById('alretClose').addEventListener('click', function () {
 
 //////budget
 document.getElementById('calculateBtn').addEventListener('click', function () {
-    const perPlayerCost = getValueFromInputField('perPlayer');
-
     const playerNumber = document.querySelectorAll('#playerList li');
+    if (playerNumber.length == 0) {
+        alert("please select any player")
 
-    const totalPlayerCost = playerNumber.length * perPlayerCost;
-    setValueInTextField('totalPlayerCost', totalPlayerCost);
+
+    }
+    else {
+        const perPlayerCost = getValueFromInputField('perPlayer');
+
+
+
+        const totalPlayerCost = playerNumber.length * perPlayerCost;
+        setValueInTextField('totalPlayerCost', totalPlayerCost);
+
+    }
+
 })
 
 document.getElementById('totalCostBtn').addEventListener('click', function () {
-    const totalPlayerCost = getValueFromTextField('totalPlayerCost');
-    const managerCost = getValueFromInputField('managerCost');
-    const coachCost = getValueFromInputField('coachCost');
-    const totalCost = totalPlayerCost + managerCost + coachCost;
-    setValueInTextField('totalCost', totalCost);
+    const playerNumber = document.querySelectorAll('#playerList li');
+    if (playerNumber.length == 0) {
+        alert("please select any player")
+
+
+    }
+    else {
+        const totalPlayerCost = getValueFromTextField('totalPlayerCost');
+        const managerCost = getValueFromInputField('managerCost');
+        const coachCost = getValueFromInputField('coachCost');
+        const totalCost = totalPlayerCost + managerCost + coachCost;
+        setValueInTextField('totalCost', totalCost);
+
+    }
+
 })
 
 document.getElementById('worrningClose').addEventListener('click', function () {
